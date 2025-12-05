@@ -4,29 +4,21 @@ import org.example.motivation.controller.MotivationController;
 import org.example.motivation.entity.Moti;
 import org.example.system.controller.SystemController;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import static org.example.Container.sc;
 
 
 public class App {
-
-    private Scanner sc;
-    public App(Scanner sc) {
-        this.sc = sc;
-    }
-
-    //static ArrayList<Moti> motiList = new ArrayList<Moti>();
 
     public void run(){
 
         System.out.println("== motivation 실행 ==");
 
         SystemController systemController = new SystemController();
-        MotivationController motivationController = new MotivationController(sc);
+        MotivationController motivationController = new MotivationController();
 
         String input;
         while(true) {
-            input = sc.nextLine().trim();
+            input = Container.getSc().nextLine().trim();
 
             if (input.equals("종료")||input.equals("exit")) {
                 SystemController.exit();
@@ -59,23 +51,4 @@ public class App {
             }
         }
     }
-    /* motivation.controller.MotivationController로 이동함
-    void create()
-    {
-
-    }
-    void read()
-    {
-
-    }
-    void update()
-    {
-
-    }
-    void delete()
-    {
-
-    }
-     */
-
 }
