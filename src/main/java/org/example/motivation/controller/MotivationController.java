@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class MotivationController {
 
-    List<Moti> motiList = new ArrayList<>();
+    ArrayList<Moti> motiList = new ArrayList<>();
 
     private Scanner sc;
     public MotivationController(Scanner sc) {
@@ -38,11 +38,28 @@ public class MotivationController {
         System.out.println("==================================================");
     }
 
-    void update()
+    public void update()
     {
+        System.out.print("number to edit : ");
+        int tempNumber = sc.nextInt();
+        sc.nextLine(); //버퍼 비우는 용도
+
+        Moti target = motiList.stream().filter(m -> m.getNumber() == tempNumber).findFirst().orElse(null);
+
+        if(target == null){
+        System.out.println("없는 번호의 motivation 입니다.");
+        return;
+        }
+
+        System.out.print("edit source : ");
+        String source = sc.nextLine().trim();
+        System.out.print("edit motivation : ");
+        String moti = sc.nextLine().trim();
+
+        target.setMoti(moti, source);
 
     }
-    void delete()
+    public void delete()
     {
 
     }

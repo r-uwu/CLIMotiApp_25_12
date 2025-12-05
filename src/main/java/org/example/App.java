@@ -15,14 +15,14 @@ public class App {
         this.sc = sc;
     }
 
-    static ArrayList<Moti> motiList = new ArrayList<Moti>();
+    //static ArrayList<Moti> motiList = new ArrayList<Moti>();
 
     public void run(){
 
         System.out.println("== motivation 실행 ==");
 
         SystemController systemController = new SystemController();
-        MotivationController motivationController = new MotivationController();
+        MotivationController motivationController = new MotivationController(sc);
 
         String input;
         while(true) {
@@ -42,6 +42,9 @@ public class App {
 
                motivationController.read();
 
+            }
+            else if(input.equals("수정")||input.equals("edit")||input.equals("update")) {
+                motivationController.update();
             }
             else {
                 System.out.println("잘못된 입력입니다 다시 입력해주세요.");

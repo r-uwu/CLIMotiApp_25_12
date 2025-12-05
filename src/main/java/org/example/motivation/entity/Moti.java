@@ -8,18 +8,21 @@ public class Moti{
 
     public int getNumber()
     {
-        this.number = number;
         return number;
     }
     public String getMoti()
     {
-        this.moti = moti;
         return moti;
     }
     public String getSource()
     {
-        this.source = source;
         return source;
+    }
+
+    public void setMoti(String moti, String source)
+    {
+        this.moti = moti;
+        this.source = source;
     }
 
     public Moti(String moti, String source) {
