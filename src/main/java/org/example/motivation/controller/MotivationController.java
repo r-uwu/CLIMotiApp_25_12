@@ -29,7 +29,7 @@ public class MotivationController {
         System.out.println("motivation이 등록 되었습니다.");
     }
 
-    public void read() {
+    public void list() {
         System.out.println("==================================================");
         System.out.println(" 번호  /  source  /          motivation");
         for(Moti m : motiList) {
@@ -59,8 +59,30 @@ public class MotivationController {
         target.setMoti(moti, source);
 
     }
+
     public void delete()
     {
+        System.out.print("number to delete : ");
+        int tempNumber = sc.nextInt();
+        sc.nextLine();
 
+        motiList.removeIf( m -> m.getNumber() == tempNumber);
+    }
+
+    public void detail()
+    {
+        System.out.print("number to detail : ");
+        int tempNumber = sc.nextInt();
+        sc.nextLine();
+
+        Moti target = motiList.stream().filter(m -> m.getNumber() == tempNumber).findFirst().orElse(null);
+        if(target == null){
+            System.out.println("motivation을 조회할 수 없습니다");
+            return;
+        }
+
+        System.out.printf("number : %d번\n",target.getNumber());
+        System.out.printf("source : %s\n",target.getSource());
+        System.out.printf("moti : %s\n",target.getMoti());
     }
 }

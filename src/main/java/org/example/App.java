@@ -40,11 +40,19 @@ public class App {
             }
             else if (input.equals("목록")||input.equals("list")) {
 
-               motivationController.read();
+               motivationController.list();
 
             }
             else if(input.equals("수정")||input.equals("edit")||input.equals("update")) {
                 motivationController.update();
+            }
+            else if(input.equals("삭제")||input.equals("delete"))
+            {
+                motivationController.delete();
+            }
+            else if(input.equals("찾기")||input.equals("detail"))
+            {
+                motivationController.detail();
             }
             else {
                 System.out.println("잘못된 입력입니다 다시 입력해주세요.");
